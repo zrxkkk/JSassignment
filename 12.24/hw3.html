@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <title>PictureViewing.html</title>
+
+   <style>
+      .centered {
+         text-align: center;
+         margin: 16px auto
+      }
+   </style>
+
+   <script>
+   
+      var picture_file_names = ["images/night_watch_by_rembrandt.jpg", "images/yellow_field_by_vincent_van_gog.jpg",
+         "images/persistence_of_memory_by_dali.jpg",
+         "images/demoiselles_de_avignon_by_picasso.jpg", "images/mona_lisa_by_leonardo.jpg"];
+
+         var picture_text = ["night_watch_by_rembrandt", "yellow_field_by_vincent_van_gog",
+         "persistence_of_memory_by_dali",
+         "demoiselles_de_avignon_by_picasso", "mona_lisa_by_leonardo"];
+      var picture_index = 0; 
+      function show_next_picture() {
+         picture_index++;
+         if (picture_index >= picture_file_names.length) { picture_index = 0; }
+         var image_element = document.getElementById("image_element_id");
+         image_element.src = picture_file_names[picture_index];
+
+         var text_element = document.getElementById(imgtext);
+         imgtext.innerHTML = picture_text[picture_index];
+      }
+      function show_previous_picture() {
+         picture_index--;
+         if (picture_index <0 ) { picture_index = picture_file_names.length-1; }
+         var image_element = document.getElementById("image_element_id");
+         image_element.src = picture_file_names[picture_index];
+
+         var text_element = document.getElementById(imgtext);
+         imgtext.innerHTML = picture_text[picture_index];
+      }
+
+      function shrink_picture(){
+         var image_element = document.getElementById("image_element_id");
+         if(image_element.width>100){
+            image_element.width = image_element.width-100;
+         }
+      }
+
+      function enlarge_picture(){
+         var image_element = document.getElementById("image_element_id");
+         image_element.width = image_element.width+100;
+      }
+      </script>
+</head>
+
+<body>
+
+   <div class="centered">
+      <button onclick="show_previous_picture()">Previous</button>
+      <button onclick="show_next_picture()">Next</button>
+   </div>
+
+   <div class="centered">
+      <button onclick="shrink_picture()">Shrink</button>
+      <button onclick="enlarge_picture()">Enlarge</button>
+   </div>
+
+   <div class="centered" id="imgtext">night_watch_by_rembrandt</div>
+
+   <div class="centered">
+      <img id="image_element_id" onclick="show_next_picture()" src="./images/night_watch_by_rembrandt.jpg" width="800">
+   </div>
+   
+   <script>
+
+   </script>
+</body>
+</html>

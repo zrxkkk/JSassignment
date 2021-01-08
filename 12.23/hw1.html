@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+         border:1px solid blue;
+        }
+        body{
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        var c = canvas.getContext("2d");
+
+
+        function Ball() {
+            this.x = Math.random() * window.innerWidth;
+            this.y = Math.random() * window.innerHeight;
+            
+            this.dx = (Math.random()-0.5)*10;
+            this.dy = (Math.random()-0.5)*10;
+            
+            this.radius = 30;
+        }
+
+        Ball.prototype.draw = function(){
+            c.beginPath();
+            c.arc(this.x,this.y,this.radius,0,Math.PI*2,true);
+            c.strokeStyle="green";
+            c.fillStyle = "gold";
+            c.fill();
+            c.stroke();
+        }
+
+        Ball.prototype.move = function(){
+            if(this.x + this.radius > window.innerWidth ||this.x - this.radius < 0)
+            {this.dx = -this.dx}
+            if(this.y + this.radius > window.innerHeight || this.y - this.radius < 0)
+            {this.dy = -this.dy}
+            
+            this.x += this.dx;
+            this.y += this.dy;
+        }
+
+
+        var balls = [];
+
+        function init(){
+            for (let i = 0; i < 10; i++) {
+                var obj = new Ball();
+                obj.draw();
+                obj.move();
+                balls.push(obj);
+            }
+        }
+
+        init();
+
+        function ballmove(){
+            window.requestAnimationFrame(ballmove);
+            c.clearRect(0,0, window.innerWidth, window.innerHeight);
+
+            for(var i=0; i<balls.length; i++){
+                var ball = balls[i];
+                ball.draw();
+                ball.move();    
+            }
+            
+        }
+
+        ballmove();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var myGamePieces = [];
+
+function startGame() {
+    myGamePiece = new component(10, 30, "red", 50,50);
+    myGamePieces.push(myGamePiece);
+    myGamePiece = new component(30, 30, "red", 80, 35);
+    myGamePieces.push(myGamePiece);
+    myGamePiece = new component(30, 30, "yellow", 80, 55);
+    myGamePieces.push(myGamePiece);
+    myGamePiece = new component(30, 30, "brown", 80, 65);
+    myGamePieces.push(myGamePiece);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);        
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    },    
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    this.width = width;
+    this.radius = width/2;
+    this.height = height;
+    this.x = x;
+    this.y = y;    
+    this.speedX = (Math.random()-0.5)*10; 
+    this.speedY = (Math.random()-0.5)*10;  
+    this.gravity = 0;
+    this.gravitySpeed = 0;
+    this.bounce = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+       
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.hitBottom();
+    }
+    this.hitBottom = function() {
+        
+        var rockbottom = myGameArea.canvas.height - this.height;
+        var top = myGameArea.canvas.height;
+        var right = myGameArea.canvas.width;
+        
+          if(this.x+this.radius > right || this.x-this.radius < 0)
+            {this.speedX = -this.speedX}
+            if(this.y+this.radius > top || this.y-this.radius < 0)
+            {this.speedY = -this.speedY}
+        
+       /* if (this.y > rockbottom) {
+            this.y = this.y-1;
+            
+        }
+        if (this.y > top) {
+            this.y = this.y-25;
+            
+        }
+        if (this.x < right) {
+            this.x = this.x+1;
+            
+        }
+        */
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePieces[0].newPos();
+    myGamePieces[0].update();
+    
+    myGamePieces[1].newPos();
+    myGamePieces[1].update();
+    
+    myGamePieces[2].newPos();
+    myGamePieces[2].update();
+    
+    myGamePieces[3].newPos();
+    myGamePieces[3].update();
+    
+ 
+}
+
+</script>
+
+</body>
+</html>

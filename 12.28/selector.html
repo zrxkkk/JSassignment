@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.intro {
+    background-color: yellow;
+}
+
+.class1.class2{
+    background-color: red;
+}
+
+.class3 .class4{
+    background-color: blueviolet;
+}
+
+#id {
+  background-color: yellow;
+}
+
+* {
+  background-color: orange;
+}
+
+p {
+  background-color: yellow;
+}
+
+p.intro {
+  background-color: yellow;
+}
+
+h1, h2 {
+  background-color: lightcoral;
+}
+
+div p {
+  background-color: yellow;
+}
+
+div > p {
+  background-color: papayawhip;
+}
+
+div + p {
+  background-color: yellow;
+}
+
+p ~ ul {
+  background: #ff0000;
+}
+
+a[target] {
+  background-color: yellow;
+}
+
+a[target=_blank] {
+  background-color: yellow;
+}
+
+[title~=flower] {
+  border: 5px solid yellow;
+}
+
+[lang|=en] {
+  background: yellow;
+}
+
+div[class^="test"] {
+  background: #ffff00;
+}
+
+div[class$="test"] {
+  background: #ffff00;
+}
+
+div[class*="test"] {
+  background: #ffff00;
+}
+
+button:active {
+  background-color: yellow;
+}
+
+p::after { 
+  content: " - 21. ::after";
+}
+
+p::before {
+  content: "22. ::before: ";
+}
+
+input:checked {
+  height: 25px;
+  width: 25px;
+}
+
+input:default {
+  box-shadow: 0 0 1px 1px red;
+}
+
+input[type="text"]:disabled {
+  background: #dddddd;
+}
+
+h5:empty {
+  background: #ff0000;
+  width: 100px;
+  height: 20px;
+}
+
+input[type=text]:enabled {
+  background: #ffff00;
+}
+
+p:first-child {
+  background-color: burlywood;
+}
+
+p::first-letter {
+  font-size: 200%;
+  color: #8A2BE2;
+}
+
+p::first-line {
+  background-color: darkcyan;
+}
+
+p:first-of-type {
+  background: red;
+}
+
+input:focus {
+  background-color: saddlebrown;
+}
+
+:-webkit-full-screen {
+  background-color: yellow;
+}
+
+/* IE11 syntax */
+:-ms-fullscreen {
+  background-color: yellow;
+}
+
+/* Standard syntax */
+:fullscreen {
+  background-color: yellow;
+}
+
+/* Style the button */
+button {
+  padding: 20px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: salmon;
+}
+
+input:in-range {
+  border: 2px solid yellow;
+}
+
+input:indeterminate {
+  box-shadow: 0 0 1px 1px red;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+
+p:lang(it) { 
+  background: darkcyan;
+}
+
+p:last-child {
+  background: #ff0000;
+}
+
+p:last-of-type {
+  background: hotpink;
+}
+
+a:link {
+  background-color: yellow;
+}
+
+:not(p) {
+  color: navy;
+}
+
+p:nth-child(2) {
+  background: red;
+}
+
+p:nth-last-child(2) {
+  background: red;
+} 
+
+p:nth-last-of-type(2) {
+  background: red;
+}
+
+p:nth-of-type(2) {
+  background: red;
+}
+
+p:only-child {
+  background: #ff0000;
+}
+
+p:only-of-type {
+  background: #ff0000;
+}
+
+p:only-of-type {
+  background: #ff0000;
+}
+
+input:optional {
+  background-color: yellow;
+}
+
+input:out-of-range {
+  border: 2px solid red;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: red;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: red;
+}
+
+::placeholder {
+  color: red;
+}
+
+input:read-only {
+  background-color: skyblue;
+}
+
+input:read-write {
+  background-color: lightgreen;
+}
+
+input:required {
+  background-color: darkgoldenrod;
+}
+
+:root {
+  background: yellowgreen;
+}
+
+::selection {
+  color: red;
+  background: yellow;
+}
+
+:target {
+  border: 2px solid #D4D4D4;
+  background-color: #e5eecc;
+}
+
+input:valid {
+  background-color: yellow;
+}
+
+a:visited {
+  color: pink;
+}
+
+</style>
+</head>
+<body>
+
+<h4  class="intro">1. .class</h4>
+
+<div class="class1 class2">2. .class1.class2</div>
+
+<div class="class3">
+    <h4 class="class4">3. .class1 .class2</h4>
+</div>
+
+<h4 id="id">4. #id</h1>
+
+<p>6. element</p>
+
+<p class="intro">7. element.class</p>
+
+<h1>8.</h1>
+<h2>element,element</h2>
+
+<div>
+    <span><p>9. element element</p></span>
+</div>
+
+<div>
+    <p>10. element>element</p>
+</div>
+
+<p>11. element+element</p>
+
+<p>12. element1~element2</p>
+<ul>
+  <li>12</li>
+  <li>12</li>
+</ul>
+
+<a target="_top">13. [attribute]</a>
+<br/>
+<a target="_blank">14. [attribute=value]</a>
+
+<h4 title="klematis flower">15. [attribute~=value]</h4>
+
+<h4 lang="en-us">16. [attribute|=value]</h4>
+
+<div class="test_ex">17. [attribute^=value]</div>
+
+<div class="first_test">18. [attribute$=value]</div>
+
+<div class="first_test">19. [attribute*=value]</div>
+<button>20. :active</button>
+<br>
+<input type="checkbox" checked="checked" value="Bike"> 23. :checked<br>
+
+<input type="radio" name="gender" value="male" checked> 24. :default<br>
+
+<input type="text" disabled="disabled" value="25. :disabled">
+
+<h5></h5>
+
+<input type="text" value="27. :enabled"><br>
+<h4>33. :fullscreen</h4>
+<button onclick="openFullscreen();">Open Fullscreen</button>
+<button onclick="closeFullscreen();">Close Fullscreen</button>
+<h4>35. :in-range</h4>
+<input type="number" min="5" max="10" value="7">
+<h4>36. :indeterminate</h4>
+<input type="checkbox" id="myCheckbox">Checkbox
+<h4>37. :invalid</h4>
+<input type="email" value="supportEmail">
+<p lang="it">38. :lang(language)</p>
+<a href="https://www.w3schools.com">41. :link</a>
+
+<h4>50. :out-of-range</h4>
+<input type="number" min="5" max="10" value="17">
+
+<h4>51. ::placeholder</h4>
+<input type="text" name="fname" placeholder="First name">
+
+<h4>52. :read-only:<br><input readonly value="hello"></h4>
+
+<h4>53. :read-write:<br><input readwrite value="hello"></h4>
+
+<h4>54. :required:<br><input required></h4>
+
+<h4><a href="#news1">57. :target: Jump to New content 1</a></h4>
+<h4 id="news1"><b>New content 1...</b></h4>
+<input type="email" value="support@example.com">÷÷÷÷÷÷÷÷÷÷÷∂ßª             
+
+<h4><a href="https://www.w3schools.com">59. :visited</a><br></h4>º≥÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷∂ßª                                                                                                  
+<script>
+    var elem = document.documentElement;
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+    }
+
+    function closeFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+    }
+    }
+
+    var checkbox = document.getElementById("myCheckbox");
+    checkbox.indeterminate = true;
+</script>
+</body>
+
+</html>

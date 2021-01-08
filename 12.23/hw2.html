@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <progress id="progress" value="10" max="100"></progress>
+    <div id="myBar">10%</div>
+
+    <br>
+    <button onclick="move()">start</button>
+    <script>
+        function move() {
+  var elem = document.getElementById("myBar");   
+  var progress = document.getElementById("progress");
+  var id = setInterval(frame, 50);
+  function frame() {
+    if (progress.value >= progress.max) {
+      clearInterval(id);
+    } else {
+      progress.value ++;
+      elem.innerHTML = progress.value * 1  + '%';
+    }
+  }
+}
+    </script>
+</body>
+</html>

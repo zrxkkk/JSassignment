@@ -1,0 +1,36 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>document</title>
+</head>   
+<body style="font-family:Arial, Helvetica, sans-serif">
+    <p id="p"><b>Choose ur color</b></p >
+    <div>
+        <input type="color" name="head" id="head" value="#38f107" >
+    </div>
+    <div>
+        <select type="font" id="font">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+        </select>
+    </div>
+    <textarea id="t"></textarea>
+    <script>
+        var head = document.getElementById("head");
+        var p = document.getElementById('p');
+        var fontStyle = document.getElementById("font");
+        var t = document.getElementById("t");
+        head.addEventListener('change',function(){
+            p.style.color = head.value; 
+            t.style.color = head.value;
+        });  
+        font.addEventListener('change',function(){
+            p.style.fontFamily = fontStyle.value; 
+            t.style.fontFamily = fontStyle.value;
+        });     
+    </script>
+</body>
+</html>

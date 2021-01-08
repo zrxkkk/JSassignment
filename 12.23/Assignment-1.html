@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball</title>
+</head>
+<body>
+    <canvas style="border: 1px solid red" id="canvas"></canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        var x = [];
+        var y = [];
+        var dx = [];
+        var dy = [];
+
+        for (let i = 0; i < 8; i++) {
+            x[i] = Math.random() * window.innerWidth;
+            y[i] = Math.random() * window.innerHeight;
+
+            dx[i] = (Math.random() - 0.5) * 10;
+            dy[i] = (Math.random() - 0.5) * 10;
+        }
+
+        var radius = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            context.clearRect(0, 0, window.innerWidth, innerHeight);
+
+            for (let j = 0; j < 8; j++) {
+                context.beginPath();
+                context.arc(x[j], y[j], radius, 0, Math.PI * 2, true);
+                context.strokeStyle = "blue";
+                context.fillStyle = "purple";
+                context.fill();
+                context.stroke();
+
+                if (x[j] - radius < 0 || x[j] + radius > window.innerWidth) {
+                    dx[j] = -dx[j];
+                }
+
+                if (y[j] - radius < 0 || y[j] + radius > window.innerHeight) {
+                    dy[j] = -dy[j];
+                }
+
+                x[j] += dx[j];
+                y[j] += dy[j];
+            }
+        }
+
+        animate();
+    </script>
+</body>
+</html>
