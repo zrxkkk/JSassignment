@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body ng-controller="item">
+    <header>
+        <h2>Shopping List Check Off</h2>
+        <p>module 2 assignment</p>
+    </header>
+    <div id="to-buy-list">
+        <h3>To Buy</h3>
+        <ul>
+            <li ng-repeat="item in items">
+                {{item.itemQuantity}} of {{item.itemName}}
+                <button ng-click="bought(item)">Bought</button>
+            </li>
+        </ul>
+        <div class="message" ng-hide="items.length">
+            everything is bought
+        </div>
+    </div>
+    <div id="already-bought-list">
+        <h3>Already bought</h3>
+        <ul>
+            <li ng-repeat="alreadyItem in alreadyItems">
+                {{alreadyItem.itemQuantity}} of {{alreadyItem.itemName}}
+            </li>
+        </ul>
+        <div class="message" ng-hide="alreadyItems.length">
+            nothing bought yet
+        </div>
+    </div>
+</body>
+</html>
